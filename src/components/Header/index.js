@@ -7,7 +7,15 @@ function Header(props) {
 const {
     headerlinks = [],
     setCurrentLink,
-    currentLink
+    currentLink,
+    setResumeSelected,
+    setContactSelected,
+    setProjectsSelected, 
+    setAboutSelected,
+    contactSelected,
+    aboutSelected,
+    resumeSelected, 
+    projectsSelected,
 } = props
 
 
@@ -29,6 +37,35 @@ const {
        >
            <span onClick={()=> {
                setCurrentLink(link)
+               if (currentLink.name === 'About Me'){
+                setContactSelected(false)
+                setProjectsSelected(false)
+                setResumeSelected(false)
+                setAboutSelected(true)
+
+               }
+               if (currentLink.name === 'Contact'){
+                setContactSelected(true)
+                setProjectsSelected(false)
+                setResumeSelected(false)
+                setAboutSelected(false)
+
+               }
+               if (currentLink.name === 'Projects'){
+                setContactSelected(false)
+                setProjectsSelected(true)
+                setResumeSelected(false)
+                setAboutSelected(false)
+
+               }
+               if (currentLink.name === 'Resume'){
+                setContactSelected(false)
+                setProjectsSelected(false)
+                setResumeSelected(true)
+                setAboutSelected(false)
+
+               }
+
            }}>{link.name}
            </span>
        </li>
